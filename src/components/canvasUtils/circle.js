@@ -14,6 +14,7 @@
  * @property {string} [bgColor='transparent'] - A cor de fundo do círculo.
  * @property {number} [lineWidth=1] - A largura da linha do círculo.
  * @property {string} [text=''] - O texto associado ao círculo.
+ * @property {number} [textSize=12] - O tamanho do texto associado ao círculo.
  */
 
 /**
@@ -30,7 +31,8 @@ const circle = (options = {}) => {
     lineColor = "#000", 
     bgColor = "transparent", 
     lineWidth = 1,
-    text = ""
+    text = "",
+    textSize = 12
   } = options;
 
   /**
@@ -39,25 +41,26 @@ const circle = (options = {}) => {
    */
   const draw = (ctx) => {
     ctx.beginPath();
-    
-    // Configuração do texto
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    // ctx.font = `${lineWidth}px Arial`;
-    ctx.fillStyle = lineColor; // Cor do texto
-    
+        
     // Desenha o círculo
     ctx.arc(xpos, ypos, radius, 0, Math.PI * 2, false);
     ctx.fillStyle = bgColor;
     ctx.strokeStyle = lineColor;
     ctx.lineWidth = lineWidth;
     
+    // Configuração do texto
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.font = `${Number(textSize)}px Arial`;
+    
     // Preenche e traça o círculo
-    ctx.fill();
+    if(!text) {
+      ctx.fill();
+    }
     ctx.stroke();
+    ctx.fillText(text, xpos, ypos);
     
     // Adiciona o texto
-    ctx.fillText(text, xpos, ypos);
     
     ctx.closePath();
 };

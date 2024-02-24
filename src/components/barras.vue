@@ -60,7 +60,7 @@ const setCanvasConfig = (config) => {
 const render = () => {
   setCanvasConfig(canvasConfig);
 
-  circle({ text: "Luposki", lineColor: "#000", bgColor: "red" }).draw(ctx.value);
+  circle({ text: "Luposki", lineColor: "#000", bgColor: "#80ffac", textSize: 16 }).draw(ctx.value);
 }
 
 

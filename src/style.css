@@ -1,0 +1,35 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+  --minMax-height: 100vh;
+
+  min-height: var(--minMax-height);
+  max-height: var(--minMax-height);
+}
+
+#app {
+  max-width: 1280px;
+  min-height: var(--minMax-height);
+  max-height: var(--minMax-height);
+  overflow: hidden;
+}
+
